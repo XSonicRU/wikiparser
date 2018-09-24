@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class Main {
     static final boolean LANG = false; //false = rus, true = eng
+    static final int words = 4; //how many words around the main word will be displayed
     static String target;
     private static int amount = 1000;
     private static int threads = 500;
@@ -83,7 +84,7 @@ class wthr extends Thread {
                         p2 = ind;
                         for (int i = ind; true; i--) {
                             if (s.charAt(i) == ' ') {
-                                if (readp <= 4) {
+                                if (readp <= Main.words) {
                                     readp++;
                                 } else {
                                     break;
@@ -95,7 +96,7 @@ class wthr extends Thread {
                         readp = 0;
                         for (int i = ind + target.length(); true; i++) {
                             if (s.charAt(i) == ' ') {
-                                if (readp <= 4) {
+                                if (readp <= Main.words) {
                                     readp++;
                                 } else {
                                     break;

@@ -15,6 +15,7 @@ public class Main {
 
     public static void main(String[] args) {
         target = new Scanner(System.in).nextLine();
+        target = target.toLowerCase();
         for (int i = 0; i < threads; i++) {
             new wthr().start();
         }

@@ -41,6 +41,7 @@ class wthr extends Thread {
     @Override
     public void run() {
         do {
+            String s1;
             String title = "";
             int readp = 0;
             String s;
@@ -71,15 +72,15 @@ class wthr extends Thread {
             try {
                 while (br.ready()) {
                     s = br.readLine();
+                    s1 = s.toLowerCase();
                     c++;
-
-                    if (c < 10) {
+                    if (c < 8) {
                         if (s.contains("<title>")) {
                             title = (s.substring(s.indexOf("<title>") + 7, s.indexOf(" —")));
                         }
                     }
-                    int ind = s.indexOf(target);
-                    if (ind != -1 && s.charAt(ind + target.length() + 1) == ' ' && s.charAt(ind - 1) == ' ') {
+                    int ind = s1.indexOf(target);
+                    if (ind != -1 && s1.charAt(ind + target.length() + 1) == ' ' && s1.charAt(ind - 1) == ' ') {
                         p1 = ind;
                         p2 = ind;
                         for (int i = ind; true; i--) {
